@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
 <%@ page import="java.util.concurrent.TimeUnit" %>
+<%@ page import="java.lang.management.ManagementFactory" %>
+<%@ page import="java.net.InetAddress" %>
 
 <%
     // 세션 객체 가져오기
@@ -20,6 +22,11 @@
     if (username == null) {
         response.sendRedirect("login.jsp");
     }
+
+    // Tomcat 서버 정보 가져오기
+    String javaVersion = System.getProperty("java.version");
+    String hostname = InetAddress.getLocalHost().getHostName();
+    String ipAddress = InetAddress.getLocalHost().getHostAddress();
 %>
 <!DOCTYPE html>
 <html>
@@ -67,6 +74,22 @@
         <tr>
             <th>Remaining Time (seconds)</th>
             <td id="remainingTime"><%= remainingTimeInSeconds %></td>
+        </tr>
+    </table>
+
+    <h2>Server Information</h2>
+    <table>
+        <tr>
+            <th>Java Version</th>
+            <td><%= javaVersion %></td>
+        </tr>
+        <tr>
+            <th>Hostname</th>
+            <td><%= hostname %></td>
+        </tr>
+        <tr>
+            <th>IP Address</th>
+            <td><%= ipAddress %></td>
         </tr>
     </table>
 </body>
