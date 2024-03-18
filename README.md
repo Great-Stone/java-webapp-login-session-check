@@ -3,7 +3,7 @@
 - Java EE 9+
 - JDK 17
 
-## Tomcat context.xml direct path : login-demo.xml
+## Option 1. Tomcat context.xml direct path : login-demo.xml
 
 `<CATALINA_HOME>/conf/Catalina/localhost/login-demo.xml`
 
@@ -13,7 +13,7 @@
 <Context path="/login-demo" docBase="<my-path>/java-webapp-login-session-check/src/main/webapp" debug="0" reloadable="true" crossContext="true" privileged="true"/>
 ```
 
-### Maven build and context.xml
+## Option 2. Maven build and context.xml
 
 ```bash
 # Maven Version
